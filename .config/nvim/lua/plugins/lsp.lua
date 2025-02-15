@@ -1,4 +1,5 @@
 local opts = { noremap=true, silent=true }
+
 vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "<Leader>a", vim.lsp.buf.code_action, opts)
 
@@ -13,7 +14,8 @@ local function on_attach()
    vim.keymap.set("n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = 0 })
 end
 
-local languages = { "clangd", "tsserver", "html", "cssls", "pyright", "texlab" }
+-- local languages = { "clangd", "ts_ls", "html", "cssls", "pyright", "texlab" }
+local languages = { "lua_ls", "clangd","ts_ls", "html", "cssls", "pyright" }
 
 return {
    {
@@ -60,8 +62,9 @@ return {
    {
       "williamboman/mason-lspconfig.nvim",
       opts = {
-         ensure_installed = { "lua_ls", "clangd", "tsserver", "html", "cssls",
-            "tailwindcss", "pyright", }
+         ensure_installed = { "lua_ls", "clangd", "ts_ls", "html", "cssls", "pyright", }
+         -- ensure_installed = { "lua_ls", "clangd", "ts_ls", "html", "cssls",
+         --    "tailwindcss", "pyright", }
       }
    }
 }

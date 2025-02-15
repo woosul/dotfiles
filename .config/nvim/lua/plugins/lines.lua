@@ -14,18 +14,20 @@ return {
    },
    {
       'akinsho/bufferline.nvim',
-      version = "v3.*",
+      version = "*",
       dependencies = 'nvim-tree/nvim-web-devicons',
       opts = {
          options = {
+            numbers = "none",
             separator_style = "slant",
             mode = "tabs",
+            always_show_bufferline = true,
             offsets = {
                {
                   filetype = "NvimTree",
-                  text = " File Explorer",
+                  text = "File Explorer",
                   highlight = "Directory",
-                  separator = false
+                  separator = true
                }
             }
          }

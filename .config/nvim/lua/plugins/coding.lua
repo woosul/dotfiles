@@ -8,8 +8,12 @@ return {
       },
    },
    {
+      -- "lukas-reineke/virt-column.nvim",
+      -- opts = {}
       "lukas-reineke/virt-column.nvim",
-      opts = {}
+      config = function()
+        require("virt-column").setup()
+      end
    },
    {
       "norcalli/nvim-colorizer.lua",
@@ -25,7 +29,8 @@ return {
    },
    {
       "lukas-reineke/indent-blankline.nvim",
-      opts = {}
+      main = "ibl",
+      opts = {},
    },
      {
       'chipsenkbeil/distant.nvim',

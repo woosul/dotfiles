@@ -1,7 +1,10 @@
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorMoved", "CursorMovedI", "WinScrolled" }, {
-   callback = function()
+  pattern = "*",
+  callback = function()
+    if vim.fn.exists(":VirtColumnRefresh") == 2 then
       vim.cmd("VirtColumnRefresh")
-   end
+    end
+  end
 })
 
 -- only highlight when searching

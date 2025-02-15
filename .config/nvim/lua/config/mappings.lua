@@ -12,6 +12,7 @@ end
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
 map({ "n", "v" }, "<Space>", "", { silent = true })
 
 -- leader movements
