@@ -19,6 +19,10 @@ map("n", "<C-s>", ":write<CR>", { desc = "Save file" })    -- Save file (eg. :w)
 map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })      -- Quit all files
 map("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Save/Quit all" })      -- Save and Quit all files
 
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+
 -- Markdown Preview
 map("n", "<M-p>", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown preview start/stop" })      -- Markdown doc proview start/stop
 
@@ -60,14 +64,12 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "TAB : Previous" })
 
 -- Windows control
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
-map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
-map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
+map("n", "<leader>=", "<C-W>v", { desc = "Split Window Right", remap = true })
+map("n", "<leader>wc", "<C-W>c", { desc = "Delete Window", remap = true })
 
 -- lazy
 map("n", "<leader>l", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
--- new file
-map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- better up/down
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -97,7 +99,6 @@ map("v", "<M-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })

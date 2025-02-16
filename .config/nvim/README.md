@@ -6,92 +6,86 @@
 ### Definition of  keys
 - Global/local **leader** key : **" "** : descrive by '%'
 
-#### File handling
-> - <font color="#00aaee">Ctrl-s</font> :write | Save file 
-> - <font color="#00aaee">% ga</font>   :qa |  Quit all files
-> - <font color="#00aaee">% wq</font>   :wqa | Save and Quit all files
+### File handling
+> - <span style="color:#00aaee">Ctrl-s</span> - :write | Save file 
+> - <span style="color:#00aaee">% ga</span>   - :qa |  Quit all files
+> - <span style="color:#00aaee">% wq</span>   - :wqa | Save and Quit all files
+> - <span style="color:#00aaee">% fn</span>   - :enew | Create new file
 
 ### Markdown preview
-> - <font color="#00aaee">Alt-p</font>  : MarkdownPreviewToggle | Markdown document preview start/stop
+> - <span style="color:#00aaee">Alt-p</span>  - : MarkdownPreviewToggle | Markdown document preview start/stop
 
 ### leader movements
-> - <font color="#00aaee">% hs</font>   :source % |  Execution :source %
-> - <font color="#00aaee">% hv</font>   :cd ~/.config/nvim/ | Change directory to nvim root
-> - <font color="#00aaee">% hh</font>   :botright vertical help {variable} | Open help window
-> - <font color="#00aaee">% hm</font>   :make | Execution :make
+> - <span style="color:#00aaee">% hs</span>   - :source % |  Execution :source %
+> - <span style="color:#00aaee">% hv</span>   - :cd ~/.config/nvim/ | Change directory to nvim root
+> - <span style="color:#00aaee">% hh</span>   - :botright vertical help {variable} | Open help window
+> - <span style="color:#00aaee">% hm</span>   - :make | Execution :make
 
 ### NvimTree controls
-> - <font color="#00aaee">% t</font>    :NvimTreeToggle | NvimTree open/close
-> - <font color="#00aaee">% tu</font>   :NvimTreeFocus | NvimTree open and focus file
-> - <font color="#00aaee">% tf</font>   :NvimTreeFindFile | NvimTree find files
-> - <font color="#00aaee">% tr</font>   :NvimTreeRefres | NvimTree refresh the tree
-> - <font color="#00aaee">% ts</font>   :NvimTreeiResize | NvimTree window size adjust. input size real and relatively
-> - <font color="#00aaee">% tp</font>   :NvimTreeCollapseKeepBuffers | NvimTree collapse window and open buffers
+> - <span style="color:#00aaee">% t</span>    - :NvimTreeToggle | NvimTree open/close
+> - <span style="color:#00aaee">% tu</span>   - :NvimTreeFocus | NvimTree open and focus file
+> - <span style="color:#00aaee">% tf</span>   - :NvimTreeFindFile | NvimTree find files
+> - <span style="color:#00aaee">% tr</span>   - :NvimTreeRefres | NvimTree refresh the tree
+> - <span style="color:#00aaee">% ts</span>   - :NvimTreeiResize | NvimTree window size adjust. input size real and relatively
+> - <span style="color:#00aaee">% tp</span>   - :NvimTreeCollapseKeepBuffers | NvimTree collapse window and open buffers
  
 ### system clipboard
-> - <font color="#00aaee">% y</font>    +y | Copy to clipboard selected
-> - <font color="#00aaee">% Y</font>    +y$ | Copy to clipboard from here to end of line
-> - <font color="#00aaee">% p</font>    +p | Paste from clipboard
+> - <span style="color:#00aaee">% y</span>    - +y | Copy to clipboard selected
+> - <span style="color:#00aaee">% Y</span>    - +y$ | Copy to clipboard from here to end of line
+> - <span style="color:#00aaee">% p</span>    - +p | Paste from clipboard
 
 ### Select word, block and movement
-> - <font color="#00aaee">% map({ "n", "v" }, "<Space>"</font> , "", { silent = true })      -- Visual mode
-> - <font color="#00aaee">% map("v", "K"</font> , ":m'<-2<CR>gv=gv", {}) -- Move blocks up of line
-> - <font color="#00aaee">% map("v", "J"</font> , ":m'>+1<CR>gv=gv", {}) -- Move blocks down of line
+> - <span style="color:#00aaee">% v</span>    - (space) | Visual mode
+> - <span style="color:#00aaee">% K</span>    - :m'<-2 + gv=gv | Move blocks up of line
+> - <span style="color:#00aaee">% J</span>    - :m'>+1 + gv=gv |  Move blocks down of line
 
 ### Tabs control
-> - <font color="#00aaee">%ap("n", "<leader><tab>l</font> , "<cmd>tablast<cr>", { desc = "TAB : Last" })
-> - <font color="#00aaee">%ap("n", "<leader><tab>o</font> , "<cmd>tabonly<cr>", { desc = "TAB : Close Others" })
-> - <font color="#00aaee">%apr><tab>d</font>
-> - <font color="#00aaee">%ap("n", "<leader>-</font> """, "<C-W>s", { desc = "Split Window Below", remap = true })
-> - <font color="#00aaee">%ap("n", "<leader>|</font> ", "<C-W>v", { desc = "Split Window Right", remap = true })
-> - <font color="#00aaee">%ap("n", "<leader>wd</font> ", "<C-W>c", { desc = "Delete Window", remap = true })
+> - <span style="color:#00aaee">% (tab) l</span>     - :tablast | TAB : to last
+> - <span style="color:#00aaee">% (tab) o</span>     - :tabonly | TAB : close Others
+> - <span style="color:#00aaee">% (tab) f</span>     - :tabfirst | TAB : to first
+> - <span style="color:#00aaee">% (tab) (tab)</span>     - :tabnew | TAB : make new tab
+> - <span style="color:#00aaee">% (tab) ]</span>     - :tabnext | TAB : to next
+> - <span style="color:#00aaee">% (tab) d</span>     - :tabclose | TAB : close tab
+> - <span style="color:#00aaee">% (tab) [</span>     - :tabprevious | TAB : to previous
 
-### lazy
-> - <font color="#00aaee">%ap("n", "<leader>l</font> ", "<cmd>:Lazy<cr>", { desc = "Lazy" })
+### Window control
+> - <span style="color:#00aaee">% -</span>      - (C-W)s | Split Window horizontal below
+> - <span style="color:#00aaee">% =</span>      - (C-W)v | Split Window vertical right
+> - <span style="color:#00aaee">% wc</span>     - (C-W)c | Close Window
 
-### new file
-> - <font color="#00aaee">%ap("n", "<leader>fn</font> ", "<cmd>enew<cr>", { desc = "New File" })
+### Lazy
+> - <span style="color:#00aaee">% l</span>      - :Lazy | Lazy open window
 
 ### better up/down
-> - <font color="#00aaee">%ap("n", "j</font> ", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-> - <font color="#00aaee">%ap("n", "<Down>"</font> , "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-> - <font color="#00aaee">%ap("n", "k</font> ", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-> - <font color="#00aaee">%ap("n", "<Up></font> ", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+> - <span style="color:#00aaee">j</span>        - v:count == 0 ? 'gj' : 'j' | Down 
+> - <span style="color:#00aaee">(Down)"</span>  - v:count == 0 ? 'gj' : 'j' | Down
+> - <span style="color:#00aaee">k</span>        - v:count == 0 ? 'gk' : 'k' | Up
+> - <span style="color:#00aaee">(Up)</span>     - v:count == 0 ? 'gk' : 'k' | Up
 
-### Move to window using the <ctrl> hjkl keys
-> - <font color="#00aaee">%ap("n", "<C-h></font> ", "<C-w>h", { desc = "Go to left window", remap = true })
-> - <font color="#00aaee">%ap("n", "<C-j></font> ", "<C-w>j", { desc = "Go to lower window", remap = true })
-> - <font color="#00aaee">%ap("n", "<C-k></font> ", "<C-w>k", { desc = "Go to upper window", remap = true })
-> - <font color="#00aaee">%ap("n", "<C-l></font> ", "<C-w>l", { desc = "Go to right window", remap = true })
+### Move to window using the (ctrl) hjkl keys
+> - <span style="color:#00aaee"> Ctrl-h </span>     - (C-w) h | Go to left window
+> - <span style="color:#00aaee"> Ctrl-j </span>     - (C-w) j | Go to lower window
+> - <span style="color:#00aaee"> Ctrl-k </span>     - (C-w) k | Go to upper window
+> - <span style="color:#00aaee"> Crtl-l </span>     - (C-w) l | Go to right window
 
-### Resize window using <ctrl> arrow keys
-> - <font color="#00aaee">%ap("n", "<C-7></font> ", "<cmd>resize +2<cr>", { desc = "Increase window height" })
-> - <font color="#00aaee">%ap("n", "<C-8></font> ", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
-> - <font color="#00aaee">%ap("n", "<C-9></font> ", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
-> - <font color="#00aaee">%ap("n", "<C-0></font> ", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
+### Resize window using (ctrl) arrow keys
+> - <span style="color:#00aaee"> Ctrl-7 </span>     - :resize +2 | Increase window height
+> - <span style="color:#00aaee"> Ctrl-8 </span>     - :resize -2 | Decrease window height
+> - <span style="color:#00aaee"> Ctrl-9 </span>     - :vertical resize -2 | Decrease window width
+> - <span style="color:#00aaee"> Ctrl-0 </span>     - :vertical resize +2 | Increase window width
 
 ### Move Lines
-> - <font color="#00aaee">%ap("n", "<M-j>"</font> , "<cmd>m .+1<cr>==", { desc = "Move down" })
-> - <font color="#00aaee">%ap("n", "<M-k></font> ", "<cmd>m .-2<cr>==", { desc = "Move up" })
-> - <font color="#00aaee">%ap("i", "<M-j></font> ", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-> - <font color="#00aaee">%ap("i", "<M-k></font> ", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-> - <font color="#00aaee">%ap("v", "<M-j></font> ", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-> - <font color="#00aaee">%ap("v", "<M-k></font> ", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+> - <span style="color:#00aaee"> Alt-j </span>      - n:m .+1i(cr)== | Move down
+> - <span style="color:#00aaee"> Alt-k </span>      - n:m .-2(cr)== | Move up
+> - <span style="color:#00aaee"> Alt-j </span>      - v:m .+1(cr)==gi | Move down
+> - <span style="color:#00aaee"> Alt-k </span>      - v:m .-2(cr)==gi | Move up
+> - <span style="color:#00aaee"> Alt-j </span>      - i:m '>+1(cr)gv=gv | Move down
+> - <span style="color:#00aaee"> Alt-k </span>      - i:m '<-2(cr)gv=gv | Move up
 
 ### buffers
-> - <font color="#00aaee">%ap("n", "<leader>bb</font> ", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-> - <font color="#00aaee">%ap("n", "<leader>`</font> ", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+> - <span style="color:#00aaee"> % bb </span>       - :e # | Switch to Other Buffer
 
-### Clear search with <esc>
-> - <font color="#00aaee">%ap({ "i", "n" }, "<esc></font> ", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-
--- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
-map(
-  "n",
-> - <font color="#00aaee">leader>ur</font> ",
-  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / clear hlsearch / diff update" }
-)
-
-> - <font color="#00aaee">ap({ "n", "x</font> " }, "gw", "*N", { desc = "Search word under cursor" })
+### Clear search with 
+> - <span style="color:#00aaee"> (esc) </span>      - :noh | Escape and clear hlsearch
+> - <span style="color:#00aaee"> % ur</span>        - :nohlsearch (Bar) diffupdate (Bar) normal! (C-L) | Redraw / clear hlsearch / diff update
+> - <span style="color:#00aaee">  gw </span>        - *N" | Search word under cursor
