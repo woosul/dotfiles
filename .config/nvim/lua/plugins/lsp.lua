@@ -36,6 +36,7 @@ return {
          })
 
          require("lspconfig").tailwindcss.setup({
+            filetypes = { "html", "css", "scss", "javascript", "typescript", "vue", "svelte" }, -- Remove "markdown"
             on_attach = function()
                require("tailwindcss-colors").buf_attach(0)
             end
