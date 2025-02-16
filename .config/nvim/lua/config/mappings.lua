@@ -19,6 +19,9 @@ map("n", "<C-s>", ":write<CR>", { desc = "Save file" })    -- Save file (eg. :w)
 map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })      -- Quit all files
 map("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Save/Quit all" })      -- Save and Quit all files
 
+-- Markdown Preview
+map("n", "<M-p>", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown preview start/stop" })      -- Markdown doc proview start/stop
+
 -- leader movements
 map("n", "<Leader>hs", ":source %<CR>", { desc = " Checkout - :source %"})     -- Execution :source %
 map("n", "<Leader>hv", ":cd ~/.config/nvim/<CR>", {})    -- Change directory to nvim root

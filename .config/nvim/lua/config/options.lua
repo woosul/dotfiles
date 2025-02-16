@@ -8,9 +8,9 @@ vim.opt.laststatus = 3
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 3
+vim.opt.tabstop = 3
+vim.opt.softtabstop = 3
 
 -- use number of spaces to insert a <Tab>
 vim.opt.expandtab = true
@@ -35,3 +35,5 @@ vim.opt.guicursor = ""
 vim.opt.termguicolors = true
 
 -- vim.opt.cmdheight = 0
+vim.g.mkdp_browser = "Zen Browser"
+
