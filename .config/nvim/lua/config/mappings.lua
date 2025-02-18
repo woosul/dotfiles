@@ -16,11 +16,11 @@ vim.g.maplocalleader = " "
 
 -- File handling
 map("n", "<C-s>", ":write<CR>", { desc = "Save file" })    -- Save file (eg. :w)
+map("n", "<M-q>", ":quit<CR>", { desc = "Quit window & file" })    -- Save file (eg. :w)
 map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })      -- Quit all files
 map("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Save/Quit all" })      -- Save and Quit all files
 
 -- new file
-map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- Markdown Preview
@@ -33,12 +33,12 @@ map("n", "<Leader>hh", ":botright vertical help ", { silent = false })     -- Op
 map("n", "<Leader>hm", ":make<CR>", {})      -- Execution :make
 
 -- NvimTree controls
-map("n", "<Leader>t", ":NvimTreeToggle<CR>", { desc = "NvimTree open/close"})
-map("n", "<Leader>tu", ":NvimTreeFocus<CR>", { desc = "NvimTree open and focus file"})
-map("n", "<Leader>tf", ":NvimTreeFindFile<CR>", { desc = "NvimTree find files"})
-map("n", "<Leader>tr", ":NvimTreeRefresh<CR>", { desc = "NvimTree refresh the tree"})
-map("n", "<Leader>ts", ":NvimTreeiResize ", { desc = "NvimTree window size adjust. input size real and relatively"})
-map("n", "<Leader>tp", ":NvimTreeCollapseKeepBuffers<CR>", { desc = "NvimTree collapse window and open buffes"})
+map("n", "<Leader>e", ":NvimTreeToggle<CR>", { desc = "NvimTree open/close"})
+map("n", "<Leader>eu", ":NvimTreeFocus<CR>", { desc = "NvimTree open and focus file"})
+map("n", "<Leader>ef", ":NvimTreeFindFile<CR>", { desc = "NvimTree find files"})
+map("n", "<Leader>er", ":NvimTreeRefresh<CR>", { desc = "NvimTree refresh the tree"})
+map("n", "<Leader>es", ":NvimTreeiResize ", { desc = "NvimTree window size adjust. input size real and relatively"})
+map("n", "<Leader>ep", ":NvimTreeCollapseKeepBuffers<CR>", { desc = "NvimTree collapse window and open buffes"})
  
 -- vim.g.netrw_winsize = 20
 -- map("n", "<Leader>t", ":Vexplore<CR>", {})
@@ -98,7 +98,8 @@ map("v", "<M-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<M-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- buffers
-map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>,", "<cmd>buffers<CR>", { desc = "Open buffers" })
+map("n", "<leader>bb", "<cmd>b #<CR>", { desc = "Open buffer #" })
 
 -- Clear search with <esc>
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
@@ -106,10 +107,10 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
-  "n",
-  "<leader>ur",
-  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / clear hlsearch / diff update" }
+"n",
+"<leader>ur",
+"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+{ desc = "Redraw / clear hlsearch / diff update" }
 )
 
 map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })

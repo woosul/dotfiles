@@ -1,6 +1,7 @@
+local vim = vim
 local opts = { noremap=true, silent=true }
 
-vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float, opts)
+vim.keymap.set("n", "<Leader>g", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "<Leader>a", vim.lsp.buf.code_action, opts)
 
 vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
@@ -18,18 +19,20 @@ end
 local languages = { "lua_ls", "clangd","ts_ls", "html", "cssls", "pyright" }
 
 return {
+
    {
       "neovim/nvim-lspconfig",
       dependencies = { "hrsh7th/cmp-nvim-lsp" },
       config = function()
          local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
          require("lspconfig").lua_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             settings = {
                Lua = {
                   diagnostics = {
-                     globals = {"vim"},
+                     globals = {"vim"},      -- Tell LSP that 'vim'is a global variable
                   },
                },
             },
