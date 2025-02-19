@@ -1,25 +1,61 @@
 # List of Neovim shortcut keys
 
+<style>
+/* Apply same table width to all table */
+table {
+    width: 100%;
+    border-collapse: collapse; /* No gap of table border (Optional) */
+}
+
+/* set 15% width to 1st column */
+table th:nth-of-type(1),
+table td:nth-of-type(1) {
+    width: 200px;
+}
+
+/* set 30% width to 2nd column */
+table th:nth-of-type(2),
+table td:nth-of-type(2) {
+    width: 30%;
+}
+
+/* set rest to last column */
+table th:nth-of-type(3),
+table td:nth-of-type(3) {
+    width: 50%} 
+</style>
+
 ### Sample image
 ![screenshot from Memnoc](https://user-images.githubusercontent.com/74842863/233617312-4cc9228a-0b2a-4105-bf16-4f4d31aaa504.png)
 
 ### Definition of  keys
-- Global/local **leader** key : **" "** : descrive by '%'
+
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<space>`, " "        | `<leader>`                | Globa variable "leader" is " "(space)        | 
 
 ### File handling
-<pre>
- - <span style="color:#00aaee">Ctrl-s</span> - :write | Save file 
- - <span style="color:#00aaee">% ga</span>   - :qa |  Quit all files
- - <span style="color:#00aaee">% wq</span>   - :wqa | Save and Quit all files
- - <span style="color:#00aaee">% fn</span>   - :enew | Create new file
-</pre>
+
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<C-s>`               | :write                    | Save files            | 
+| `<leader>ga`          | :qa                       | Quit all files        |
+| `<leader>wq`          | :wqa                      | Save and quit all files                      |
+| `<leader>fn`          | :enew                     | Create new files      |
 
 ### Markdown preview
+
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git                      | Git status            | 
 <pre>
  - <span style="color:#00aaee">Alt-p</span>  - : MarkdownPreviewToggle | Markdown document preview start/stop
 </pre>
 
 ### leader movement s
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% hs</span>   - :source % |  Execution :source %
  - <span style="color:#00aaee">% hv</span>   - :cd ~/.config/nvim/ | Change directory to nvim root
@@ -28,6 +64,9 @@
 </pre>
 
 ### NvimTree controls
+| Hotkey                | Co mmand                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% e</span>    - :NvimTreeToggle | NvimTree open/close
  - <span style="color:#00aaee">% eu</span>   - :NvimTreeFocus | NvimTree open and focus file
@@ -38,6 +77,9 @@
 </pre>
 
 ### system clipboard
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% y</span>    - +y | Copy to clipboard selected
  - <span style="color:#00aaee">% Y</span>    - +y$ | Copy to clipboard from here to end of line
@@ -45,6 +87,9 @@
 </pre>
 
 ### Select word, block and movement
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% v</span>    - (space) | Visual mode
  - <span style="color:#00aaee">% K</span>    - :m'<-2 + gv=gv | Move blocks up of line
@@ -52,6 +97,9 @@
 </pre>
 
 ### Tabs control
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% (tab) l</span>     - :tablast | TAB : to last
  - <span style="color:#00aaee">% (tab) o</span>     - :tabonly | TAB : close Others
@@ -63,6 +111,9 @@
 </pre>
 
 ### Window control
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% -</span>      - (C-W)s | Split Window horizontal below
  - <span style="color:#00aaee">% =</span>      - (C-W)v | Split Window vertical right
@@ -70,11 +121,17 @@
 </pre>
 
 ### Lazy
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">% l</span>      - :Lazy | Lazy open window
 </pre>
 
 ### better up/down
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee">j</span>        - v:count == 0 ? 'gj' : 'j' | Down 
  - <span style="color:#00aaee">(Down)"</span>  - v:count == 0 ? 'gj' : 'j' | Down
@@ -83,6 +140,9 @@
 </pre>
 
 ### Move to window using the (ctrl) hjkl keys
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee"> Ctrl-h </span>     - (C-w) h | Go to left window
  - <span style="color:#00aaee"> Ctrl-j </span>     - (C-w) j | Go to lower window
@@ -91,6 +151,9 @@
 </pre>
 
 ### Resize window using (ctrl) arrow keys
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee"> Ctrl-7 </span>     - :resize +2 | Increase window height
  - <span style="color:#00aaee"> Ctrl-8 </span>     - :resize -2 | Decrease window height
@@ -99,6 +162,9 @@
 </pre>
 
 ### Move Lines
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee"> Alt-j </span>      - n:m .+1i(cr)== | Move down
  - <span style="color:#00aaee"> Alt-k </span>      - n:m .-2(cr)== | Move up
@@ -109,12 +175,18 @@
 </pre>
 
 ### buffers
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee"> % , </span>          - :buffers | Open buffers
  - <span style="color:#00aaee"> % bb </span>       - :b # | Open buffer #
 </pre>
 
 ### Clear search with 
+| Hotkey                | Command                   | Description           |
+| :----:                | :----                     | :---                  |
+| `<leader>gs`          | :Git `<cr>`               | Git status            | 
 <pre>
  - <span style="color:#00aaee"> (esc) </span>      - :noh | Escape and clear hlsearch
  - <span style="color:#00aaee"> % ur</span>        - :nohlsearch (Bar) diffupdate (Bar) normal! (C-L) | Redraw / clear hlsearch / diff update
@@ -122,8 +194,9 @@
 </pre>
 
 
+
 ### git interaction
-| <div style="width:120px">Hotkey</div> | <div style="width:220px">Command</div> | Description           |
+| Hotkey                | Command                   | Description           |
 | :----:                | :----                     | :---                  |
 | `<leader>gs`          | :Git `<cr>`               | Git status            | 
 | `<leader>gl`          | :Git log `<cr>`           | Git logs              |
@@ -131,7 +204,7 @@
 | `<leader>gc`          | :Git commit `<cr>`        | Git commit files      |
 
 ### Telescope interaction
-| <div style="width:120px">Hotkey</div> | <div style="width:220px">Command</div> | Description           |
+| Hotkey                | Command                   | Description           |
 | :----:                | :----                     | :---                  |
 | ```<leader>ff```      | builtin.find_files        | Telescope fine files  |
 | ```<leader>fg```      | builtin.live_grep         | Telescope Live grep : need ripgrep module installed  |
@@ -139,7 +212,7 @@
 | ```<leader>fh```      | builtin.help_tagss        | Telescope help        |
 
 ### Lua script 
-| <div style="width:120px">Hotkey</div> | <div style="width:220px">Command</div> | Description           |
+| Hotkey                | Command                   | Description           |
 | :----:                | :----                     | :---                  |
 | ```<leader>g```       | vim.diagnostic.open_float | Open pop-up diagnostic for fix with options    |
 | ```<leader>a```       | vim.lsp.buf.codee_action  | Open toast diagnostic menu to action           |
