@@ -6,7 +6,7 @@ return {
          require("nvim-treesitter.configs").setup({
             auto_install = true,
             ensure_installed = { "c", "cpp", "python", "lua", "vim", "vimdoc",
-               "javascript", "html", "css", "bash", "comment",  "tsx", "query", "markdown", "markdown-inline" },
+               "javascript", "html", "css", "bash", "comment",  "tsx", "query", "markdown", "markdown_inline" },
             highlight = { enable = true },
             indent = { enable = true },
             autotag = { enable = true },
