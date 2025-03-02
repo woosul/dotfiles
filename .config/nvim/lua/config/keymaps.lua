@@ -1,137 +1,32 @@
-local function map(mode, lhs, rhs, opts)
-	-- set default value if not specify
-	if opts.noremap == nil then
-		opts.noremap = true
-	end
-	if opts.silent == nil then
-		opts.silent = true
-	end
-
-	vim.keymap.set(mode, lhs, rhs, opts)
-end
-
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
+local keymap = vim.keymap -- for conciseness
 
--- File handling
-map("n", "<C-s>", ":write<CR>", { desc = "Save file" })    -- Save file (eg. :w)
-map("n", "<A-q>", ":quit<CR>", { desc = "Quit window & file" })    -- Save file (eg. :w)
-map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit all" })      -- Quit all files
-map("n", "<leader>wq", "<cmd>wqa<cr>", { desc = "Save/Quit all" })      -- Save and Quit all files
+keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
--- new file
-map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- Markdown Preview
-map("n", "<A-p>", "<cmd>MarkdownPreviewToggle<cr>", { desc = "Markdown preview start/stop" })      -- Markdown doc proview start/stop
+-- increment/decrement numbers
+keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
+keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 
--- leader movements
-map("n", "<Leader>hs", ":source %<CR>", { desc = " Checkout - :source %"})     -- Execution :source %
-map("n", "<Leader>hv", ":cd ~/.config/nvim/<CR>", {})    -- Change directory to nvim root
-map("n", "<Leader>hh", ":botright vertical help ", { silent = false })     -- Open help window
-map("n", "<Leader>hm", ":make<CR>", {})      -- Execution :make
+-- window management
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
--- NvimTree controls
-map("n", "<Leader>e", ":NvimTreeToggle<CR>", { desc = "NvimTree open/close"})
-map("n", "<Leader>eu", ":NvimTreeFocus<CR>", { desc = "NvimTree open and focus file"})
-map("n", "<Leader>ef", ":NvimTreeFindFile<CR>", { desc = "NvimTree find files"})
-map("n", "<Leader>er", ":NvimTreeRefresh<CR>", { desc = "NvimTree refresh the tree"})
-map("n", "<Leader>es", ":NvimTreeiResize ", { desc = "NvimTree window size adjust. input size real and relatively"})
-map("n", "<Leader>ep", ":NvimTreeCollapseKeepBuffers<CR>", { desc = "NvimTree collapse window and open buffes"})
- 
--- vim.g.netrw_winsize = 21
--- map("n", "<Leader>t", ":Vexplore<CR>", {})
+keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
+keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
+keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
--- system clipboard
-map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Copy to clipboard selected"})
-map({ "n" }, "<Leader>Y", '"+y$', { desc = "Copy to clipboard from here to end of line"})
-map("n", "<Leader>p", '"+p', { desc = "Paste from clipboard"})
+-- nvim tree management by nvim-tree.lua
+-- keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true })
+-- keymap.set('n', '<leader>ef', ':NvimTreeFindFile<CR>', { noremap = true })
 
--- Select word, block and movement
-map({ "n", "v" }, "<Space>", "", { silent = true })      -- Visual mode
-map("v", "K", ":m'<-2<CR>gv=gv", {}) -- Move blocks up of line
-map("v", "J", ":m'>+1<CR>gv=gv", {}) -- Move blocks down of line
-
--- Tabs control
-map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "TAB : Last" })
-map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "TAB : Close Others" })
-map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "TAB : First" })
-map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "TAB : New" })
-map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "TAB : Next" })
-map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "TAB : Close" })
-map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "TAB : Previous" })
-
--- Windows control
-map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
-map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
-map("n", "<leader>c", "<C-W>c", { desc = "Delete Window", remap = true })
-
--- lazy
-map("n", "<leader>l", "<cmd>:Lazy<cr>", { desc = "Lazy" })
-
-
--- better up/down
-map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map("n", "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-map("n", "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-
--- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
-
--- Resize window using <alt> character arrow keys
-map("n", "<leader>k", "<cmd>resize -10<cr>", { desc = "Decrease window height", remap = true })
-map("n", "<leader>j", "<cmd>resize +10<cr>", { desc = "Increase window height", remap = true })
-map("n", "<leader>h", "<cmd>vertical resize -10<cr>", { desc = "Decrease window width", remap = true })
-map("n", "<leader>l>", "<cmd>vertical resize +10<cr>", { desc = "Increase window width", remap = true })
-
--- Move Lines
-map("n", "<A-down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-up>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
--- buffers
-map("n", "<leader>,", "<cmd>buffers<CR>", { desc = "Open buffers" })
-map("n", "<leader>bb", "<cmd>b #<CR>", { desc = "Open buffer #" })
-
--- Clear search with <esc>
-map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsearch" })
-
--- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
-map("n","<leader>ur","<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",{ desc = "Redraw / clear hlsearch / diff update" }
-)
-
-map({ "n", "x" }, "gw", "*N", { desc = "Search word under cursor" })
-
--- toggle options
--- LazyVim.format.snacks_toggle():map("<leader>uf")
--- LazyVim.format.snacks_toggle(true):map("<leader>uF")
--- Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
--- Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
--- Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
--- Snacks.toggle.diagnostics():map("<leader>ud")
--- Snacks.toggle.line_number():map("<leader>ul")
--- Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" }):map("<leader>uc")
--- Snacks.toggle.option("showtabline", { off = 0, on = vim.o.showtabline > 0 and vim.o.showtabline or 2, name = "Tabline" }):map("<leader>uA")
--- Snacks.toggle.treesitter():map("<leader>uT")
--- Snacks.toggle.option("background", { off = "light", on = "dark" , name = "Dark Background" }):map("<leader>ub")
--- Snacks.toggle.dim():map("<leader>uD")
--- Snacks.toggle.animate():map("<leader>ua")
--- Snacks.toggle.indent():map("<leader>ug")
--- Snacks.toggle.scroll():map("<leader>uS")
--- Snacks.toggle.profiler():map("<leader>dpp")
--- Snacks.toggle.profiler_highlights():map("<leader>dph")
--- Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
--- Snacks.toggle.zen():map("<leader>uz")
---
--- if vim.lsp.inlay_hint then
---   Snacks.toggle.inlay_hints():map("<leader>uh")
--- end
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "move place to left window" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "move place to below window" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "move place to upper window" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "move place to righ tot window" })

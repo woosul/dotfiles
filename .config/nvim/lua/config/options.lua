@@ -1,38 +1,61 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 10
+local vim = vim
+local opt = vim.opt     -- for concisenese
+
+vim.cmd("let g:netrw_liststyle = 3")
+
+opt.number = true
+opt.relativenumber = true
+opt.scrolloff = 10
 
 -- use global status line
-vim.opt.laststatus = 3
+opt.laststatus = 3
 
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
-vim.opt.shiftwidth = 3
-vim.opt.tabstop = 3
-vim.opt.softtabstop = 3
+opt.ignorecase = true
+opt.smartcase = true
 
 -- use number of spaces to insert a <Tab>
-vim.opt.expandtab = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = false
+opt.autoindent = true
+opt.smartindent = true
 
-vim.opt.swapfile = false
+opt.swapfile = false
+opt.wrap = false      -- disable line wrapping
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.splitright = true
+opt.splitbelow = true
 
 -- highlight the line number of the cursor
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
+opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+opt.cursorline = true
+opt.cursorlineopt = "number"
 
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
-
--- disable cursor-styling
-vim.opt.guicursor = ""
+opt.updatetime = 250
+opt.timeoutlen = 300
 
 -- vim.opt.mouse = ""
 
-vim.opt.termguicolors = true
+-- turn on termguicolors for nightfly colorscheme to work
+-- (have to use iterm2 or any other true color terminal)
+opt.termguicolors = true
+opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+
+-- search setting
+opt.ignorecase = true -- ignore case when searching
+opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+
+-- backspace
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
+-- clipboard
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+-- split windows
+opt.splitright = true -- split vertical window to the right
+opt.splitbelow = true -- split horizontal window to the bottom
 
 -- vim.opt.cmdheight = 0
 vim.g.mkdp_browser = "Zen Browser"
