@@ -27,26 +27,31 @@ return {
          require("tailwindcss-colors").setup()
       end
    },
-   {
-      "lukas-reineke/indent-blankline.nvim",
-      main = "ibl",
-      opts = {},
+	{
+	  "lukas-reineke/indent-blankline.nvim",
+	  event = { "BufReadPre", "BufNewFile" },
+	  main = "ibl",
+	  opts = {
+		 -- indent = { char = "┊" },
+	  }
    },
-     {
-      'chipsenkbeil/distant.nvim',
-      branch = 'v0.2',
-      config = function()
-         require('distant').setup {
-            ['*'] = require('distant.settings').chip_default()
-         }
-      end
-   },
-   {
-      "github/copilot.vim",
-      config = function()
-         vim.cmd('imap <silent><script><expr> <C-CR> copilot#Accept("\\<CR>")')
-         vim.g.copilot_no_tab_map = true
-         vim.g.copilot_enabled = false
-      end
-   },
+  
+	{
+		'chipsenkbeil/distant.nvim',
+	     branch = 'v0.2',
+		  config = function()
+			require('distant').setup {
+				['*'] = require('distant.settings').chip_default()
+			}	
+		  end
+	},
+	
+	{
+	   "github/copilot.vim",
+	   config = function()
+	      vim.cmd('imap <silent><script><expr> <C-CR> copilot#Accept("\\<CR>")')
+	      vim.g.copilot_no_tab_map = true
+	      vim.g.copilot_enabled = false
+	    end
+  },
 }

@@ -8,7 +8,7 @@ opt.relativenumber = true
 opt.scrolloff = 10
 
 -- use global status line
-opt.laststatus = 3
+opt.laststatus =4
 
 opt.ignorecase = true
 opt.smartcase = true
@@ -19,7 +19,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = false
 opt.autoindent = true
-opt.smartindent = true
+-- opt.smartindent = true
 
 opt.swapfile = false
 opt.wrap = false      -- disable line wrapping

@@ -62,9 +62,9 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.api.nvim_create_autocmd("BufEnter", {
    pattern = { "*.lua" },
    callback = function()
-      vim.opt.shiftwidth = 3
-      vim.opt.tabstop = 3
-      vim.opt.softtabstop = 3
+      vim.opt.shiftwidth = 2
+      vim.opt.tabstop = 2
+      vim.opt.softtabstop = 2
       -- vim.opt_local.colorcolumn = {70, 80}
    end
 })
