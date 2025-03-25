@@ -2,9 +2,16 @@ vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
 
+-- exit insert mode with jk instead of ESC
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+-- highlight enabled when searching
+keymap.set("n", "<leader>hl", "<cmd>set hlsearch<CR>", { desc = "Set search highlights" })
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>", { desc = "Clear search highlights" })
+
+-- keep selection when indenting in visual mode
+keymap.set("v", ">", ">gv", { noremap = true, silent = true })
+keymap.set("v", "<", "<gv", { noremap = true, silent = true })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
@@ -20,6 +27,9 @@ keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- o
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
+keymap.set("n", "<leader>t1", "<cmd>tabfir<CR>", { desc = "Go to first tab" }) --  go to first tab
+keymap.set("n", "<leader>t0", "<cmd>tabl<CR>", { desc = "Go to last tab" }) --  go to last tab
+keymap.set("n", "<leader>ty", "<cmd>tabonly<CR>", { desc = "Close all tabs except current tab" }) -- close all tab pages except for the current one
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- nvim tree management by nvim-tree.lua
