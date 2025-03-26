@@ -1,121 +1,148 @@
 return {
-   -- {
-   --    "nvim-lualine/lualine.nvim",
-   --    dependencies = { "nvim-tree/nvim-web-devicons" },
-   --    opts = {
-   --       options = {
-   --          theme = "tokyonight",
-   --          globalstatus = true,
-   --       }
-   --    },
-   --    init = function()
-   --       vim.opt.showmode = false
-   --    end
-   -- },
-	{
-	  "nvim-lualine/lualine.nvim",
-	  dependencies = { "nvim-tree/nvim-web-devicons" },
-	  config = function()
-		 local lualine = require("lualine")
-		 local lazy_status = require("lazy.status") -- to configure lazy pending updates count
+  -- {
+  --    "nvim-lualine/lualine.nvim",
+  --    dependencies = { "nvim-tree/nvim-web-devicons" },
+  --    opts = {
+  --       options = {
+  --          theme = "tokyonight",
+  --          globalstatus = true,
+  --       }
+  --    },
+  --    init = function()
+  --       vim.opt.showmode = false
+  --    end
+  -- },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      local lualine = require "lualine"
+      -- local trouble = require("trouble")
+      local lazy_status = require "lazy.status" -- to configure lazy pending updates count
 
-		 local colors = {
-			blue = "#65D1FF",
-			green = "#3EFFDC",
-			violet = "#FF61EF",
-			yellow = "#FFDA7B",
-			red = "#FF4A4A",
-			fg = "#c3ccdc",
-			bg = "#112638",
-			inactive_bg = "#2c3043",
-		 }
-
-		 local my_lualine_theme = {
-			normal = {
-			  a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
-			  b = { bg = colors.bg, fg = colors.fg },
-			  c = { bg = colors.bg, fg = colors.fg },
-			},
-			insert = {
-			  a = { bg = colors.green, fg = colors.bg, gui = "bold" },
-			  b = { bg = colors.bg, fg = colors.fg },
-			  c = { bg = colors.bg, fg = colors.fg },
-			},
-			visual = {
-			  a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
-			  b = { bg = colors.bg, fg = colors.fg },
-			  c = { bg = colors.bg, fg = colors.fg },
-			},
-			command = {
-			  a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
-			  b = { bg = colors.bg, fg = colors.fg },
-			  c = { bg = colors.bg, fg = colors.fg },
-			},
-			replace = {
-			  a = { bg = colors.red, fg = colors.bg, gui = "bold" },
-			  b = { bg = colors.bg, fg = colors.fg },
-			  c = { bg = colors.bg, fg = colors.fg },
-			},
-			inactive = {
-			  a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-			  b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-			  c = { bg = colors.inactive_bg, fg = colors.semilightgray },
-			},
-		 }
-
-		 -- configure lualine with modified theme
-		 lualine.setup({
-			options = {
-			  theme = my_lualine_theme,
-			},
-			sections = {
-			  lualine_x = {
-				 {
-					lazy_status.updates,
-					cond = lazy_status.has_updates,
-					color = { fg = "#ff9e64" },
-				 },
-				 { "encoding" },
-				 { "fileformat" },
-				 { "filetype" },
-			  },
-			},
-		 })
-	  end,
-	},
-
-   {
-      'akinsho/bufferline.nvim',
-      version = "*",
-      dependencies = 'nvim-tree/nvim-web-devicons',
-      opts = {
-         options = {
-            numbers = "none",
-            separator_style = "slant",
-            mode = "tabs",
-            always_show_bufferline = true,
-            offsets = {
-               {
-                  filetype = "NvimTree",
-                  text = "File Explorer",
-                  highlight = "Directory",
-                  separator = true
-               }
-            }
-         }
+      local colors = {
+        blue = "#65D1FF",
+        green = "#3EFFDC",
+        violet = "#FF61EF",
+        yellow = "#FFDA7B",
+        red = "#FF4A4A",
+        fg = "#c3ccdc",
+        bg = "#112638",
+        inactive_bg = "#2c3043",
       }
-   },
-   {
-      "utilyre/barbecue.nvim",
-      name = "barbecue",
-      version = "*",
-      dependencies = {
-         "SmiteshP/nvim-navic",
-         "nvim-tree/nvim-web-devicons",
+
+      local my_lualine_theme = {
+        normal = {
+          a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+          b = { bg = colors.bg, fg = colors.fg },
+          c = { bg = colors.bg, fg = colors.fg },
+        },
+        insert = {
+          a = { bg = colors.green, fg = colors.bg, gui = "bold" },
+          b = { bg = colors.bg, fg = colors.fg },
+          c = { bg = colors.bg, fg = colors.fg },
+        },
+        visual = {
+          a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
+          b = { bg = colors.bg, fg = colors.fg },
+          c = { bg = colors.bg, fg = colors.fg },
+        },
+        command = {
+          a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
+          b = { bg = colors.bg, fg = colors.fg },
+          c = { bg = colors.bg, fg = colors.fg },
+        },
+        replace = {
+          a = { bg = colors.red, fg = colors.bg, gui = "bold" },
+          b = { bg = colors.bg, fg = colors.fg },
+          c = { bg = colors.bg, fg = colors.fg },
+        },
+        inactive = {
+          a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
+          b = { bg = colors.inactive_bg, fg = colors.semilightgray },
+          c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+        },
+      }
+
+      -- configure lualine with modified theme
+      lualine.setup {
+        options = {
+          theme = my_lualine_theme,
+        },
+        sections = {
+          lualine_x = {
+            {
+              function()
+                local count = vim.diagnostic.count(0)
+                local total = count and (count[1] or 0) + (count[2] or 0) + (count[3] or 0) + (count[4] or 0) or 0
+                return " " .. total
+              end,
+              color = { fg = "#ff7600" },
+              on_click = function()
+                vim.cmd "Trouble diagnostics toggle"
+              end,
+            },
+            {
+              lazy_status.updates,
+              cond = lazy_status.has_updates,
+              color = { fg = "#ff9e64" },
+            },
+            { "encoding" },
+            { "fileformat" },
+            { "filetype" },
+            -- {
+            --   require("micropython_nvim").statusline,
+            --   cond = package.loaded["micropython_nvim"] and require("micropython_nvim").exists,
+            --   color = { bg = "#22aaee" },
+            -- },
+            {
+              require("micropython_nvim").statusline,
+              cond = function()
+                local ok, exists = pcall(function()
+                  return package.loaded["micropython_nvim"] and require("micropython_nvim").exists
+                end)
+                return ok and exists == "1"
+              end,
+              color = { bg = "#22aaee" },
+            },
+          },
+        },
+      }
+    end,
+  },
+
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    opts = {
+      options = {
+        numbers = "none",
+        separator_style = "slant",
+        mode = "tabs",
+        always_show_bufferline = true,
+        offsets = {
+          {
+            filetype = "NvimTree",
+            text = "File Explorer",
+            highlight = "Directory",
+            separator = true,
+          },
+        },
       },
-      opts = {
-         show_dirname = false,
-         show_basename = false
-      },
-   }
+    },
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      show_dirname = false,
+      show_basename = false,
+    },
+  },
 }
