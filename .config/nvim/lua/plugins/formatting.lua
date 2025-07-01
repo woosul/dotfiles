@@ -19,12 +19,16 @@ return {
         graphql = { "prettier" },
         liquid = { "prettier" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+        -- python = { "isort", "black" },
+        python = { "autopep8" },
       },
+      -- format_on_save = {
+      --   lsp_fallback = false,
+      -- },
       format_on_save = function(bufnr)
         local ft = vim.bo[bufnr].filetype
         --disable formatting on save for lua
-        if ft == "lua" then
+        if ft == "python" then
           return
         end
         return {
@@ -34,6 +38,8 @@ return {
         }
       end,
     }
+    vim.b.disable_format_on_save = true
+    vim.b.disable_autoformat = true
 
     vim.keymap.set({ "n", "v" }, "<leader>mp", function()
       conform.format {
